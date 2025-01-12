@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "job": "Web Developer"
+    },
+    {
+        "id": 2,
+        "name": "Jane Doe",
+        "job": "Web Designer"
+    },
+    {
+        "id": 3,
+        "name": "John Smith",
+        "job": "Web Developer"
+    }
+]
