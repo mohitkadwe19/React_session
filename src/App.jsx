@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 // import Home from "./Home";
 // import About from "./About";
@@ -14,6 +14,9 @@ import ToDoList from "./ToDoList";
 // class component - not used anymore
 
 function App() {
+
+  // useEffect -> lifecycle method in react -> when component is render in the browser
+  // this useEffect will run and perform the task
 
   //  const isUserLoggedIn = false;
 
