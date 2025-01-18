@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import data from "./data.json";
+import { useNavigate } from "react-router";
 
-const Contact = (props) => {
-    let {state, setState } = props;
+
+const Contact = () => {
+    const [state, setState] = useState('')
+
+    const navigate = useNavigate();
 
     function handleChange(e){
       setState(e.target.value)
+    }
+
+    function handleSubmit(){
+      setState('')
+      navigate('/')
     }
 
   return (
@@ -15,6 +24,11 @@ const Contact = (props) => {
 
 
         <input name='phone' onChange={handleChange} />
+
+       <br />
+       <br />
+
+        <button type='button' onClick={handleSubmit}>Submit</button>
 
       {/* {
         data.map((item,index)=>{
