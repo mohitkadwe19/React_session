@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import data from "./data.json";
 import { useNavigate } from "react-router";
-
+import { useContext } from 'react';
+import { MyContext } from './main';
 
 const Contact = () => {
     const [state, setState] = useState('')
@@ -17,9 +18,13 @@ const Contact = () => {
       navigate('/')
     }
 
+    const data = useContext(MyContext);
+    console.log(data);
+
   return (
     <div>
         <h1>Contact</h1>
+        <p>email : {data.email}</p>
         <p>Phone number: {state}</p>
 
 
