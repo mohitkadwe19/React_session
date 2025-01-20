@@ -1,22 +1,34 @@
 import { NavLink } from "react-router";
 import { useContext } from "react";
-import { MyContext } from "../main";
+import { MyContext } from "../App";
 
 const Navbar = () => {
 
   // let's get username from mycontext
 
-  const {username, email} = useContext(MyContext);
+  const {myData, setData, user} = useContext(MyContext);
 
 
+  function handleEmailChange(e){
+    const email = e.target.value;
+    console.log(email);
+    setData({
+      ...myData,
+      email:email
+    })
+  }
   return (
     <nav className="navbar">
         <ul>
             <li><NavLink to="/home">Home</NavLink></li>
             <li><NavLink to="/contact">contact</NavLink></li>
             <li><NavLink to="/about">about</NavLink></li>
-            <li>username : {username}</li>
-            <li>email : {email}</li>
+            <li><NavLink to="/login">login</NavLink></li>
+            <li><NavLink to="/register">register</NavLink></li>
+            <li>username : {user.username}</li>
+            <li>
+              <input name='email' type="email" placeholder="email" onChange={handleEmailChange} />
+            </li>
         </ul>
     </nav>
   )

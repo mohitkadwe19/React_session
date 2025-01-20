@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import data from "./data.json";
 import { useNavigate } from "react-router";
 import { useContext } from 'react';
-import { MyContext } from './main';
+import { MyContext } from './App';
 
 const Contact = () => {
     const [state, setState] = useState('')
@@ -18,17 +18,27 @@ const Contact = () => {
       navigate('/')
     }
 
-    const data = useContext(MyContext);
-    console.log(data);
+    const {myData, setData} = useContext(MyContext);
+
+    function handleEmailChange (e){
+      const email = e.target.value;
+      console.log(email);
+      setData({...myData, email: email})
+    }
 
   return (
     <div>
         <h1>Contact</h1>
-        <p>email : {data.email}</p>
+        <p>email : {myData.email}</p>
         <p>Phone number: {state}</p>
 
 
         <input name='phone' onChange={handleChange} />
+
+        <br />
+        <br />
+
+        <input name='email' onChange={handleEmailChange} placeholder='email' />
 
        <br />
        <br />

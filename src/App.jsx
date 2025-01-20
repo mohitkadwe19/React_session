@@ -1,11 +1,18 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 // import Home from "./Home";
 // import About from "./About";
 import Contact from "./Contact";
-import Profile from "./Profile";
-import ToDoList from "./ToDoList";
 import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router";
+import Home from "./Home";
+import About from "./About";
+import Footer from "./components/Footer.jsx";
+import Product from "./components/Product.jsx";
+import { createContext, useState } from "react";
+import Login from "./Login.jsx";
+import Register from "./Register.jsx";
+
+export const MyContext = createContext();
 
 // import name of component from file path
 
@@ -38,6 +45,16 @@ function App() {
   // }
 
   // let data= "+918837789990"
+
+  const [myData, setData] = useState({
+    username: "admin",
+    email: "admin@gmail.com",
+  });
+
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
 
   return (
     // root element
@@ -77,7 +94,22 @@ function App() {
         isUserLoggedIn == true ? <Profile /> : <p>please login !</p>
       } */}
 
-      <ToDoList />
+      {/* this is context provider that helps you provide the data to all the component */}
+      <MyContext.Provider
+        // value have the initial value of the context that you want to provide to all the components
+        value={{ myData, setData, user, setUser }}
+      >
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+        <Footer />
+      </MyContext.Provider>
     </>
   );
 }
