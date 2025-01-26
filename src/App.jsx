@@ -11,6 +11,7 @@ import Product from "./components/Product.jsx";
 import { createContext, useState } from "react";
 import Login from "./Login.jsx";
 import Register from "./Register.jsx";
+import TicTacToe from "./TicTacToe.jsx";
 
 export const MyContext = createContext();
 
@@ -107,6 +108,7 @@ function App() {
           <Route path="/product/:id" element={<Product />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/tictactoe" element={<TicTacToe />} />
         </Routes>
         <Footer />
       </MyContext.Provider>

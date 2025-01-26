@@ -41,31 +41,47 @@
   color: #888;
 }
 
-
-
 .main_input {
   margin: 50px;
   width: 5rem;
   padding: 2rem;
 }
 
-.todo{
+.todo {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.image{
-  width:  300px;
+.image {
+  width: 300px;
   height: 300px;
 }
 
-
-.register{
+.register {
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   padding: 2rem;
   border: 1px solid #fff;
+}
+
+.board {
+  width: 100%;
+  padding: 2rem;
+  border: 1px solid #fff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-right: 1px solid #fff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
