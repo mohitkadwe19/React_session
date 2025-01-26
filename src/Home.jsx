@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from 'react'
+import ToDoList from './ToDoList'
 
 const Home = ({ name }) => {
 
@@ -32,6 +33,8 @@ const Home = ({ name }) => {
     <button type='button' onClick={()=>{
       inputRef.current.focus()
     }}> focus input</button>
+
+    <ToDoList/>
 
     </div>
   )
