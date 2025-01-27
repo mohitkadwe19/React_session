@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import axios from "axios";
+
 const ToDoList = () => {
   const [todos, setTodos] = useState([]);
 
@@ -31,12 +33,29 @@ const ToDoList = () => {
   }
 
   async function getDate(){
-    const result =  await fetch('https://dog.ceo/api/breeds/image/random');
-    console.log(result);
-    const data = await result.json();
+    // const result =  await fetch('https://dog.ceo/api/breeds/image/random' , {
+    //   method: 'GET'
+    // });
+    // console.log(result);
+    // const data = await result.json();
     
-    setImage(data.message);
-    console.log(data);
+    // setImage(data.message);
+    // console.log(data);
+
+  const data = await axios.get("https://dog.ceo/api/breeds/image/random")
+
+  console.log(data);
+
+  setImage(data.data.message);
+
+
+
+  const getPost = await axios.get("https://jsonplaceholder.typicode.com/posts");
+
+  console.log("getPost", getPost);
+
+
+  return data.data.message;
 
   }
 
@@ -47,6 +66,20 @@ const ToDoList = () => {
   },[]);
 
     console.log("after useEffect");
+
+
+   async function updateData (){
+      const res = await axios({
+        method: 'patch',
+        url: 'https://jsonplaceholder.typicode.com/post/1',
+        data: {
+           "title" : "foo",
+        }
+      });
+
+      console.log(res);
+    }
+
 
   return (
     <div>
@@ -69,7 +102,7 @@ const ToDoList = () => {
 
         <br />
 
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={updateData}>Submit</button>
       </form>
 
       <br />

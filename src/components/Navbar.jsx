@@ -20,11 +20,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
         <ul>
-            <li><NavLink to="/home">Home</NavLink></li>
+            <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/contact">contact</NavLink></li>
             <li><NavLink to="/about">about</NavLink></li>
             <li><NavLink to="/login">login</NavLink></li>
             <li><NavLink to="/register">register</NavLink></li>
+            <li><NavLink to="/tictactoe">TicTacToe</NavLink></li>
             <li>username : {user.username}</li>
             <li>
               <input name='email' type="email" placeholder="email" onChange={handleEmailChange} />
