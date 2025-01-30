@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import ToDoList from './ToDoList'
+import Post from './components/Post'
 
 const Home = ({ name }) => {
 
@@ -35,6 +36,8 @@ const Home = ({ name }) => {
     }}> focus input</button>
 
     <ToDoList/>
+
+    <Post/>
 
     </div>
   )
