@@ -3,6 +3,7 @@ import data from "./data.json";
 import { useNavigate } from "react-router";
 import { useContext } from 'react';
 import { MyContext } from './App';
+import { useSelector } from 'react-redux';
 
 const Contact = () => {
     const [state, setState] = useState('')
@@ -26,11 +27,14 @@ const Contact = () => {
       setData({...myData, email: email})
     }
 
+    const {count} = useSelector((state) => state.counterReducer)
+
   return (
     <div>
         <h1>Contact</h1>
         <p>email : {myData.email}</p>
         <p>Phone number: {state}</p>
+        <p>Count: {count}</p>
 
 
         <input name='phone' onChange={handleChange} />
