@@ -54,6 +54,7 @@ function App() {
 
   const [user, setUser] = useState({
     username: "",
+    email:"",
     password: "",
   });
 
