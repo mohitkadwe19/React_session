@@ -3,6 +3,7 @@ import "./App.css";
 import { useContext } from "react";
 import { MyContext } from "./App";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,13 +21,24 @@ const Login = () => {
     setPassword(e.target.value);
   }
 
-  function handleLogin() {
-    if (username == user.username && password == user.password) {
-      alert("Login Successful");
-      navigate("/");
-    } else {
-      alert("Invalid Credentials");
+ async function handleLogin() {
+  try{
+    const data = {
+      email: username,
+      password: password,
     }
+    const response = await axios.post("http://localhost:3000/login", data);
+  
+    // save the token in local storage
+    localStorage.setItem("token", response.data.token);
+
+    if(response.status === 200){
+      navigate("/");
+    }
+  }
+  catch (error) {
+    console.log(error);
+  } 
   }
 
   return (
@@ -44,7 +56,7 @@ const Login = () => {
         />
         <br />
         <button type="button" onClick={handleLogin}>
-          Register
+          Login
         </button>
       </form>
     </div>
